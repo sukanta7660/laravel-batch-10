@@ -78,16 +78,22 @@
                     @endauth
                 </div>
             @endif
-
+            @php
+                $txt = "PagePage";
+                $txt2 = "Menu";
+                $len = strlen($txt);
+            @endphp
             <div class="content">
                 <div class="title m-b-md">
-                    About {{$ss}}
+                    About Page
                 </div>
 
+                @include('ex')
+                
                 <div class="links">
-                    <a href="{{ url('/') }}">Home</a>
-                    <a href="{{ url('about') }}">About</a>
-                    <a href="{{ url('contact') }}">Contact</a>
+                    @foreach($dept as $department)
+                    <a href="#">{{$department}}</a>
+                    @endforeach
                 </div>
             </div>
         </div>

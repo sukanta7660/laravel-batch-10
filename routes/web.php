@@ -11,21 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-	$class = "Batch";
-	$class1 = "10";
-    return view('pages.welcome',compact('class','class1'));
-});
+Route::get('/','User\IndexController@index');
 
-Route::get('calcu',function(){
-	echo 100*10000;
-});
+Route::get('calcu','IndexController@calcu1');
 
-Route::get('about',function(){
-	$class = "Batch";
-	$class1 = "10";
-	return view('pages.about')->with(['ss' => $class]);
-})->name('student.info');
+Route::get(md5('about'),'User\IndexController@about')->name('student.info');
 
 Route::get('contact',function(){
 	return view('pages.contact');
