@@ -12,6 +12,7 @@
 */
 
 Route::get('/','User\IndexController@index');
+Route::get('extend','IndexController@extend');
 
 Route::get('calcu','IndexController@calcu1');
 

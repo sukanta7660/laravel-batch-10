@@ -1,8 +1,7 @@
-
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Colorlib Wordify &mdash; Minimal Blog Template</title>
+    <title>Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,9 +18,25 @@
     <link rel="stylesheet" href="{{asset('public/asset')}}/css/style.css">
   </head>
   <body>
-    
-
     <div class="wrap">
+<!--code-->
+
+{{-- <header role="banner">
+        <div class="top-bar">
+          <div class="container"> --}}
+            <?php 
+            //code
+            $info = array('name' => 'Sukanta','DEPT' => 'CSE' );
+            ?>
+            @php
+              $class = "Batch 10";
+              $site_name = "Wordify";
+              $page = "home";
+              $dept = array("CSE","EEE","BBA","ENG","ARCHI");
+            @endphp
+            <!-- @for($i=1;$i<=100;$i++)
+              <p>{{$i}}</p>
+            @endfor -->
 
       <header role="banner">
         <div class="top-bar">
@@ -48,57 +63,19 @@
           <div class="row pt-5">
             <div class="col-12 text-center">
               <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-              <h1 class="site-logo"><a href="index.html">Wordify</a></h1>
+              <h1 class="site-logo">
+                @if($page=="home")
+                <a href="index.html">{{$site_name}}</a>
+                @else
+                <a href="index.html">{{$class}}</a>
+                @endif
+                
+              </h1>
             </div>
           </div>
         </div>
         
-        <nav class="navbar navbar-expand-md  navbar-light bg-light">
-          <div class="container">
-            
-           
-            <div class="collapse navbar-collapse" id="navbarMenu">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Business</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="category.html">Asia</a>
-                    <a class="dropdown-item" href="category.html">Europe</a>
-                    <a class="dropdown-item" href="category.html">Dubai</a>
-                    <a class="dropdown-item" href="category.html">Africa</a>
-                    <a class="dropdown-item" href="category.html">South America</a>
-                  </div>
-
-                </li>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdown05">
-                    <a class="dropdown-item" href="category.html">Lifestyle</a>
-                    <a class="dropdown-item" href="category.html">Food</a>
-                    <a class="dropdown-item" href="category.html">Adventure</a>
-                    <a class="dropdown-item" href="category.html">Travel</a>
-                    <a class="dropdown-item" href="category.html">Business</a>
-                  </div>
-
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-              </ul>
-              
-            </div>
-          </div>
-        </nav>
+        @include('inc.ab')
       </header>
       <!-- END header -->
 
