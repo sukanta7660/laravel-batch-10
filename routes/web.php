@@ -11,12 +11,23 @@
 |
 */
 
+// <a href="{{action('User\IndexController@index')}}">JHGfhjgfhjg</a>
+
 Route::get('/','User\IndexController@index');
 
-Route::get('calcu','IndexController@calcu1');
+Route::group(['prefix' => 'user'],function(){
 
-Route::get(md5('about'),'User\IndexController@about')->name('student.info');
+	Route::get('contact',function(){
+		return view('user.contact');
+	});
 
-Route::get('contact',function(){
-	return view('pages.contact');
 });
+
+
+Route::group(['prefix' => 'admin'],function(){
+
+	Route::get('dashboard','Admin\DashboardController@index');
+
+});
+
+
