@@ -17,9 +17,10 @@ Route::get('/','User\IndexController@index');
 
 Route::group(['prefix' => 'user'],function(){
 
-	Route::get('contact',function(){
-		return view('user.contact');
-	});
+//Route::get('/','User\IndexController@class');
+	//Route::get('/','User\IndexController@index');
+	Route::get('/about','User\IndexController@about');
+	Route::get('/contact','User\IndexController@contact');
 
 });
 

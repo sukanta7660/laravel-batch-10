@@ -8,11 +8,15 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function index(){
-    	return view('user.welcome');
+        return view('user.index');
     }
-
     public function about(){
-		$dept = array("cse","eee","bba","civil","law");
-		return view('pages.about',compact('dept'));
-	}
+        return view('user.about');
+    }
+    public function contact(){
+        return view('user.contact');
+    }
+    public function class(){
+        return view('index1');
+    }
 }
