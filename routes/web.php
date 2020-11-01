@@ -14,6 +14,10 @@ Route::group(['prefix' => 'admin'],function(){
 
 	Route::get('dashboard','Admin\DashboardController@index');
 
+	/*----------------- Category ------------------*/
+	Route::get('all-category','Admin\CategoryController@index');
+	/*----------------- Category ------------------*/
+
 });
 
 
