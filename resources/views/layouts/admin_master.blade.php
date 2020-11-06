@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Travels</title>
+  <title> @yield('title') || Travels</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('public/admin_asset/') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

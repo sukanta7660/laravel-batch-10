@@ -10,8 +10,9 @@
               <h6 class="m-0 font-weight-bold text-primary">Create Form</h6>
             </div>
             <div class="card-body">
-            <form class="user" method="post" action="{{action('Admin\CategoryController@save')}}">
-                    @csrf
+            <form class="user" method="post" action="{{action('Admin\CategoryController@store')}}">
+                    {{-- @csrf --}}
+                    {{csrf_field()}}
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" name="name" placeholder="Enter category name...">
                     </div>

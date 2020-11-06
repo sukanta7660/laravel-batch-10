@@ -16,6 +16,8 @@ Route::group(['prefix' => 'admin'],function(){
 
 	/*----------------- Category ------------------*/
 	Route::get('all-category','Admin\CategoryController@index');
+	Route::get('create-category','Admin\CategoryController@create');
+	Route::post('store-category','Admin\CategoryController@store');
 	/*----------------- Category ------------------*/
 
 });

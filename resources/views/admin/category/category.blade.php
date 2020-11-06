@@ -4,7 +4,7 @@
 <h1 class="h3 mb-1 text-gray-800">All Category</h1><br>
 <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><a href="#" class="btn btn-sm btn-primary">Create</a></h6>
+            <h6 class="m-0 font-weight-bold text-primary"><a href="{{action('Admin\CategoryController@create')}}" class="btn btn-sm btn-primary">Create</a></h6>
             </div>
             <div class="card-body">
             <table class="table">
