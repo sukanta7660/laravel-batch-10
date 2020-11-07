@@ -10,7 +10,12 @@ use App\Category;
 class CategoryController extends Controller
 {
     public function index(){
-        return view('admin.category.category');
+        //eloquent
+        $categories =  Category::all();
+
+        //query builder
+        //return DB::table('categories')->select('name','slug','created_at')->get();
+        return view('admin.category.category',compact('categories'));
     }
     public function create(){
         return view('admin.category.create');
@@ -22,12 +27,23 @@ class CategoryController extends Controller
     //     'name' => $request->name,
     //     'slug' => str_slug($request->name,'_'),
     // ]);
-
     //eloquent
     $category = new Category();
     $category->name = $request->name;
-    $category->slug = str_slug($request->name);
+    $category->slug = str_slug($request->name,'_');
     $category->save();
     return redirect()->to('admin/all-category');
+    }
+
+    //delete
+    public function delete($id){
+        //query builder
+        //DB::table('categories')->where('id',$id)->delete();
+
+        //eloquent
+        //Category::where('id',$id)->delete();
+       $category =  Category::find($id);
+       $category->delete();
+        return redirect()->back();
     }
 }

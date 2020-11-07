@@ -15,15 +15,19 @@
                   <th class="text-right">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                
+                  <tbody>
+                    @php
+                        $i = 1;
+                    @endphp
+                @foreach ($categories as $item)
                     <tr>
-                    <th scope="row">1</th>
-                    <td>Rottt</td>
+                    <th scope="row">{{$i++}}</th>
+                    <td>{{$item->name}}</td>
                   <td class="text-right">
-                    <a href="#" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="#" class="btn btn-sm btn-danger">Del</a>
+                  <a href="#" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure?')" href="{{action('Admin\CategoryController@delete',['id' => $item->id])}}" class="btn btn-sm btn-danger">Del</a>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
             </div>
