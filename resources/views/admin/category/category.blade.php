@@ -15,6 +15,9 @@
                   <th class="text-right">Action</th>
                 </tr>
               </thead>
+              @php
+                  $txt = 10;
+              @endphp
                   <tbody>
                     @php
                         $i = 1;
@@ -24,7 +27,7 @@
                     <th scope="row">{{$i++}}</th>
                     <td>{{$item->name}}</td>
                   <td class="text-right">
-                  <a href="#" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure?')" href="{{action('Admin\CategoryController@delete',['id' => $item->id])}}" class="btn btn-sm btn-danger">Del</a>
+                  <a href="{{action('Admin\CategoryController@update_page',['id' => $item->id])}}" class="btn btn-sm btn-primary">Update</a> || <a onclick="return confirm('Are you sure?')" href="{{action('Admin\CategoryController@delete',['id' => $item->id])}}" class="btn btn-sm btn-danger">Del</a>
                   </td>
                 </tr>
                 @endforeach

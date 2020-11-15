@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 150);
             $table->string('imageName', 50)->default('default.jpg');
             $table->text('description');
-            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->foreign('user_id')->references('id')->on('categories')->onDelete('No Action')->onUpdate('No Action');
             $table->timestamps();
         });

@@ -35,7 +35,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Blogs</a>
+          <a class="collapse-item" href="{{action('Admin\BlogController@index')}}">Blogs</a>
             <a class="collapse-item {{ (request()->is('admin/all-category')) ? 'active' : '' }}" href="{{action('Admin\CategoryController@index')}}">Category</a>
           </div>
         </div>

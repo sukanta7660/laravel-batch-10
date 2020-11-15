@@ -35,6 +35,21 @@ class CategoryController extends Controller
     return redirect()->to('admin/all-category');
     }
 
+    public function update_page($id){
+        $category = Category::find($id);
+        return view('admin.category.update',compact('category'));
+    }
+
+    public function update(Request $request){
+        
+        $category = Category::find($request->tah);
+        return $category;
+        $category->name = $request->name;
+        $category->slug = str_slug($request->name,'_');
+        $category->save();
+        return redirect()->to('admin/all-category');
+    }
+
     //delete
     public function delete($id){
         //query builder
@@ -46,4 +61,6 @@ class CategoryController extends Controller
        $category->delete();
         return redirect()->back();
     }
+
 }
+
