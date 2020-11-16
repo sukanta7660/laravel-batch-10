@@ -10,7 +10,8 @@ use App\Http\Controllers\Controller;
 class BlogController extends Controller
 {
     public function index(){
-        return view('admin.blog.blog');
+        $blogs = Blog::all();
+        return view('admin.blog.blog',compact('blogs'));
     }
     public function create(){
         $categories = Category::all();
@@ -39,5 +40,15 @@ class BlogController extends Controller
 
         $blog->save();
         return redirect('admin/all-blog');
+    }
+
+    public function delete($id){
+        $blog = Blog::find($id);
+        $path = public_path('uploads/blogs/'.$blog->imageName);
+        if(file_exists($path)){
+            unlink($path);
+        }
+        $blog->delete();
+        return redirect()->back();
     }
 }

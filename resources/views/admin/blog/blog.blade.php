@@ -19,19 +19,27 @@
                 </tr>
               </thead>
               <tbody>
-
-                
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($blogs as $row)
                     <tr>
-                    <th scope="row"></th>
-                    <td>1111</td>
-                    <td>222</td>
-                    <td>2333</td>
-                    <td>444</td>
-                  <td class="text-right">
-                  <a href="" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="" class="btn btn-sm btn-danger">Del</a>
-                  </td>
+                    <th scope="row">{{$i++}}</th>
+                    <td>
+                      @if ($row->imageName == 'default.jpg')
+                          <img width="50" height="30" src="{{asset('public/image/default.jpg')}}" alt="">
+                      @else
+                        <img width="50" height="30" src="{{asset('public/uploads/blogs/'.$row->imageName)}}" alt="">
+                      @endif
+                    </td>
+                    <td>{{$row->category->name}}</td>
+                    <td>{{$row->title}}</td>
+                    <td>{{str_limit($row->description,20,'---')}}</td>
+                    <td class="text-right">
+                    <a href="" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="{{action('Admin\BlogController@delete',['id' => $row->id])}}" class="btn btn-sm btn-danger">Del</a>
+                    </td>
                 </tr>
-                    
+                @endforeach
               </tbody>
             </table>
             </div>

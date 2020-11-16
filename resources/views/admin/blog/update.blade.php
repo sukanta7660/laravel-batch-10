@@ -10,23 +10,22 @@
                     <h6 class="m-0 font-weight-bold text-primary">Update Form</h6>
                 </div>
                 <div class="card-body">
-                    <form class="user" method="post" action="{{action('Admin\BlogController@update')}}" enctype="multipart/form-data">
+                    <form class="user" method="post" action="" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="id" value="{{$blog->id}}">
                         <div class="form-group">
                       <select name="category_id" class="form-control" id="">
                         <option value="">Select a category</option>
-                        @foreach ($cat as $row)
-                        <option value="{{$row->id}}" @if($blog->category_id==$row->id) selected @endif>{{$row->name}}</option> 
-                        @endforeach
+                        
+                        <option value="">suususus</option> 
+                        
                         
                       </select>
                     </div>
                     <div class="form-group">
-                    <input type="text" class="form-control form-control-user" name="title" value="{{$blog->title}}" placeholder="Enter Blog Title">
+                    <input type="text" class="form-control form-control-user" name="title" value="" placeholder="Enter Blog Title">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control" name="description" id="" cols="5" rows="5" placeholder="write a description about the blog...">{{$blog->description}}</textarea>
+                      <textarea class="form-control" name="description" id="" cols="5" rows="5" placeholder="write a description about the blog..."></textarea>
                     </div>
                     <div class="form-group">
                       <input type="file" name="imageName" class="form-control">
