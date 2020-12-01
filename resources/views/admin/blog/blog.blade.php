@@ -36,7 +36,7 @@
                     <td>{{$row->title}}</td>
                     <td>{{str_limit($row->description,20,'---')}}</td>
                     <td class="text-right">
-                    <a href="" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="{{action('Admin\BlogController@delete',['id' => $row->id])}}" class="btn btn-sm btn-danger">Del</a>
+                    <a href="{{action('Admin\BlogController@update_page',['id' => $row->id])}}" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="{{action('Admin\BlogController@delete',['id' => $row->id])}}" class="btn btn-sm btn-danger">Del</a>
                     </td>
                 </tr>
                 @endforeach
