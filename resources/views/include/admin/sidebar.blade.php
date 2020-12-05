@@ -40,6 +40,12 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{action('Admin\UserController@index')}}">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users</span>
+        </a>
+      </li>
 
       <!-- Divider -->
       

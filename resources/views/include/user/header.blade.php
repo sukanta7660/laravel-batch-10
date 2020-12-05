@@ -69,6 +69,23 @@
             <li class="nav-item">
               <a class="nav-link" href="{{action('User\IndexController@contact')}}">Contact</a>
             </li>
+            @if (isset(Auth::user()->email))
+            <li class="nav-item">
+            <a class="nav-link" href="#">{{Auth::user()->name}}</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="">Logout</a>
+            </li>
+                @else
+                <li class="nav-item">
+            <a class="nav-link" href="{{url('login')}}">Login</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{url('register')}}">SignUp</a>
+            </li>
+            @endif
+            
+            
           </ul>
           
         </div>

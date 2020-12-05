@@ -1,7 +1,7 @@
 @extends('layouts.admin_master')
-@section('title','Update Category Page')
+@section('title','Update User Type Page')
 @section('content')
-<h1 class="h3 mb-1 text-gray-800">Update Category</h1>
+<h1 class="h3 mb-1 text-gray-800">Update User Type</h1>
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -10,12 +10,16 @@
             <h6 class="m-0 font-weight-bold text-primary">Update Form</h6>
             </div>
             <div class="card-body">
-            <form class="user" method="post" action="{{action('Admin\CategoryController@update')}}">
+            <form class="user" method="post" action="{{action('Admin\UserController@update')}}">
                     {{-- @csrf --}}
                     {{csrf_field()}}
-                <input type="hidden" name="tah" value="{{$category->id}}">
+                <input type="hidden" name="id" value="{{$user->id}}">
                     <div class="form-group">
-                    <input type="text" class="form-control" value="{{$category->name}}" name="name" placeholder="Enter category name...">
+                        <select name="userType" class="form-control">
+                            <option value="">Select a User type</option>
+                            <option value="Admin" @if($user->userType == 'Admin') selected @endif>Admin</option>
+                            <option value="User" @if($user->userType == 'User') selected @endif>User</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Save Changes
