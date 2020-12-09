@@ -18,6 +18,14 @@ class BlogController extends Controller
         return view('admin.blog.create',compact('categories'));
     }
     public function store(Request $request){
+
+         $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'imageName' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
         // $extension = $request->imageName->extension();
         // $fileName = str_slug($request->title,'_').'_'.md5(date('Y-m-d H:i:s'));
         // $fileName = $fileName.'.'.$extension;

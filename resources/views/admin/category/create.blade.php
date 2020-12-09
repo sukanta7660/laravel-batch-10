@@ -10,12 +10,24 @@
               <h6 class="m-0 font-weight-bold text-primary">Create Form</h6>
             </div>
             <div class="card-body">
+              {{-- @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif --}}
             <form class="user" method="post" action="{{action('Admin\CategoryController@store')}}">
                     {{-- @csrf --}}
                     {{csrf_field()}}
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="name" placeholder="Enter category name...">
+                    <input type="text" class="form-control form-control-user" value="{{old('name')}}"name="name" placeholder="Enter category name...">
                     </div>
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Save
                     </button>

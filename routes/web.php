@@ -12,7 +12,7 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::group(['middleware' => 'admin'],function(){
 				Route::group(['prefix' => 'admin'],function(){
 
-						Route::get('dashboard','Admin\DashboardController@index')->middleware('admin');
+						Route::get('dashboard','Admin\DashboardController@index')->middleware('verified');
 
 						/*----------------- Blog ------------------*/
 						Route::get('all-blog','Admin\BlogController@index');
@@ -47,6 +47,6 @@ Route::group(['middleware' => 'auth'],function(){
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

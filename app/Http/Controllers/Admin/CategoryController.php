@@ -21,6 +21,10 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
     public function store(Request $request){
+
+        $request->validate([
+            'name' => 'required | email | unique:categories'
+        ]);
         //dd($request->all());
         //query builder
     // DB::table('categories')->insert([
